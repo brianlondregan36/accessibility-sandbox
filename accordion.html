@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapsible Accordion | Accessibility Sandbox</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <style>
+    .accordion {
+      display: flex;
+      flex-direction: column;
+    }
+    .accordion__btn {
+      width: 100px;
+      height: 36px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: none;
+      background-color: #0075FF;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+    fieldset { border: none; }
+    legend { padding: 10px 2px; }
+    label { padding-right: 12px; }
+  </style>
+</head>
+
+<body>
+  <nav class="top-nav" aria-label="Example Menu">
+    <div class="top-nav__dd">
+      <button class="top-nav__dd-btn">Progress Bars</button>
+      <ul>
+        <li><a href="progress-bar1.html">HTML5 Progress Bar</a></li>
+        <li><a href="progress-bar2.html">Progress Bar via ARIA Role</a></li>
+        <li><a href="progress-bar3.html">Progress Bar via ARIA Live Region</a></li>
+      </ul>
+    </div>
+    <div class="top-nav__dd">
+      <button class="top-nav__dd-btn">Interactive Widgets</button>
+      <ul>
+        <li><a href="accordion.html">Collapsible Accordion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <main>
+    <h1>Collapsible Accordion</h1>
+
+    <form action="" method="POST" name="accordionForm">
+      <div class="accordion">
+        <button type="button" id="btn1" class="accordion__btn" aria-expanded="false" onclick="toggle('btn1', 'sec1')">Section 1</button>
+        <fieldset id="sec1" aria-hidden="true" style="height:0px; display:none;">
+          <legend>Please select your answer for Section 1</legend>
+            <input type="radio" id="sec1-1" name="section1" value="1">
+            <label for="sec1-1">Answer Option A</label>
+            <input type="radio" id="sec1-2" name="section1" value="2">
+            <label for="sec1-2">Answer Option B</label>
+            <input type="radio" id="sec1-3" name="section1" value="3">
+            <label for="sec1-3">Answer Option C</label>
+        </fieldset>
+        <button type="button" id="btn2" class="accordion__btn" aria-expanded="false" onclick="toggle('btn2', 'sec2')">Section 2</button>
+        <fieldset id="sec2" aria-hidden="true" style="height:0px; display:none;">
+          <legend>Please select your answer for Section 2</legend>
+            <input type="radio" id="sec2-1" name="section2" value="1">
+            <label for="sec2-1">Answer Option A</label>
+            <input type="radio" id="sec2-2" name="section2" value="2">
+            <label for="sec2-2">Answer Option B</label>
+            <input type="radio" id="sec2-3" name="section2" value="3">
+            <label for="sec2-3">Answer Option C</label>
+        </fieldset>
+      </div>
+    </form>
+  </main>
+
+
+
+
+  <aside aria-label="Test Notes">
+    <div>How does it handle?</div>
+    <ul>
+      <li>JAWS: Not Tested</li>
+      <li>NVDA: Not Tested</li>
+      <li>Narrator: Not Tested</li>
+      <li>TalkBack: Not Tested</li>
+      <li>VoiceOver: Not Tested</li>
+    </ul>
+  </aside>
+</body>
+
+<script>
+  function toggle(id1, id2) {
+
+    var btn = document.getElementById(id1);
+    var sec = document.getElementById(id2);
+
+    if (sec.getAttribute("aria-hidden") == "false") {
+      sec.style.height = '0';
+      sec.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+      sec.setAttribute('aria-hidden', 'true');
+    }
+    else {
+      sec.style.height = '90px';
+      sec.style.display = 'block';
+      btn.setAttribute('aria-expanded', 'true');
+      sec.setAttribute('aria-hidden', 'false');
+    }
+  }
+</script>
+
+</html>

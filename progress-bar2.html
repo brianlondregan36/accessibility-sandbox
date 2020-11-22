@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bar via ARIA Role | Accessibility Sandbox</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <style>
+    .main-prog__outer {
+      position: relative;
+      width: 200px;
+      height: 18px;
+      border: 1px solid #3C77BE;
+      border-radius: 8px;
+      background-color: #EFEFEF;
+    }
+    .main-prog__inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 18px;
+      border-radius: 6px;
+      background-color: #0075FF;
+      text-indent: 10px;
+      font-weight: bold;
+      font-family: arial;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="top-nav" aria-label="Example Menu">
+    <div class="top-nav__dd">
+      <button class="top-nav__dd-btn">Progress Bars</button>
+      <ul>
+        <li><a href="progress-bar1.html">HTML5 Progress Bar</a></li>
+        <li><a href="progress-bar2.html">Progress Bar via ARIA Role</a></li>
+        <li><a href="progress-bar3.html">Progress Bar via ARIA Live Region</a></li>
+      </ul>
+    </div>
+    <div class="top-nav__dd">
+      <button class="top-nav__dd-btn">Interactive Widgets</button>
+      <ul>
+        <li><a href="accordion.html">Collapsible Accordion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <main>
+    <h1>Progress Bar via ARIA Role</h1>
+
+    <div id="txt1">Download Progress:</div>
+    <div id="outerBar1" class="main-prog__outer" role="progressbar" aria-labelledby="txt1" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Copying Files...">
+      <div id="innerBar1" class="main-prog__inner" style="width:0%;">0%</div>
+    </div>
+
+  </main>
+
+
+
+
+  <aside aria-label="Test Notes">
+    <div>How does it handle?</div>
+    <ul>
+      <li>JAWS: Not Tested</li>
+      <li>NVDA: Not Tested</li>
+      <li>Narrator: Not Tested</li>
+      <li>TalkBack: Not Tested</li>
+      <li>VoiceOver: Not Tested</li>
+    </ul>
+  </aside>
+</body>
+
+<script>
+  var int = setInterval(increaseProgress, 3000);
+  function increaseProgress() {
+
+    var bar = document.getElementById("outerBar1");
+    var inner = document.getElementById("innerBar1");
+
+    var prevProg = bar.getAttribute("aria-valuenow");
+    var newProg = Number(prevProg) + 25;
+
+    bar.setAttribute("aria-valuenow", newProg);
+    inner.style.width = "" + newProg + "%";
+    inner.innerHTML = "" + newProg + "%";
+
+    if(newProg <= 0) {
+      bar.setAttribute("aria-valuetext", "Copying Files...")
+    }
+    else if(newProg == 25) {
+      bar.setAttribute("aria-valuetext", "Processing Files...");
+    }
+    else if(newProg == 50) {
+      bar.setAttribute("aria-valuetext", "Reconfiguring...");
+    }
+    else if(newProg == 75) {
+      bar.setAttribute("aria-valuetext", "Finalizing Files...");
+    }
+    else if(newProg >= 100) {
+      bar.setAttribute("aria-valuetext", "Complete");
+      clearInterval(int);
+    }
+  }
+</script>
+
+</html>

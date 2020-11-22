@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Progress Bar | Accessibility Sandbox</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+  <nav class="top-nav" aria-label="Example Menu">
+    <div class="top-nav__dd">
+      <button class="top-nav__dd-btn">Progress Bars</button>
+      <ul>
+        <li><a href="progress-bar1.html">HTML5 Progress Bar</a></li>
+        <li><a href="progress-bar2.html">Progress Bar via ARIA Role</a></li>
+        <li><a href="progress-bar3.html">Progress Bar via ARIA Live Region</a></li>
+      </ul>
+    </div>
+    <div class="top-nav__dd">
+      <button class="top-nav__dd-btn">Interactive Widgets</button>
+      <ul>
+        <li><a href="accordion.html">Collapsible Accordion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <main>
+    <h1>HTML5 Progress Bar</h1>
+
+    <label for="prog1">Download Progress:</label>
+    <progress id="prog1" value="0" max="100" aria-valuetext="Copying files...">0%</progress>
+
+  </main>
+
+
+
+
+  <aside aria-label="Test Notes">
+    <div>How does it handle?</div>
+    <ul>
+      <li>JAWS: Not Tested</li>
+      <li>NVDA: Not Tested</li>
+      <li>Narrator: Not Tested</li>
+      <li>TalkBack: Not Tested</li>
+      <li>VoiceOver: Not Tested</li>
+    </ul>
+  </aside>
+</body>
+
+<script>
+  var int = setInterval(increaseProgress, 3000);
+  function increaseProgress() {
+
+    var bar = document.getElementById("prog1");
+
+    bar.value = bar.value + 25;
+    bar.innerHTML = bar.value + "%";
+
+    if(bar.value <= 0) {
+        bar.setAttribute("aria-valuetext", "Copying Files...");
+    }
+    else if(bar.value == 25) {
+      bar.setAttribute("aria-valuetext", "Processing Files...");
+    }
+    else if(bar.value == 50) {
+      bar.setAttribute("aria-valuetext", "Reconfiguring...");
+    }
+    else if(bar.value == 75) {
+      bar.setAttribute("aria-valuetext", "Finalizing Files...");
+    }
+    else if(bar.value >= 100) {
+      bar.setAttribute("aria-valuetext", "Complete");
+      clearInterval(int);
+    }
+  }
+</script>
+
+</html>
