@@ -28,23 +28,25 @@
   outline: none;
   background-color: #5E2F2F;
 }
-.top-nav__dd:hover ul, .top-nav__dd-btn:focus ul, .top-nav__dd ul:hover, .top-nav__dd a:focus {
-  display: block;
-}
 .top-nav__dd ul {
   display: none;
-  position: absolute;
+  position: relative;
   min-width: 160px;
   margin: 0;
   padding: 0;
   list-style-type: none;
   background-color: #333333;
   z-index: 1;
+  box-sizing: border-box;
+}
+.top-nav__dd--open ul {
+  display: block;
 }
 .top-nav__dd li {
   width: 100%;
   padding: 10px;
   background-color: #CCCCCC;
+  box-sizing: border-box;
 }
 .top-nav__dd li:hover, .top-nav__dd li a:focus {
   background-color: #AAA9A9;
