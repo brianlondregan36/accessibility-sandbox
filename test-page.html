@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome | BR Architects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+
+    :focus { outline: 1px solid #0A5F0A; outline-offset: 2px; }
+    header:focus, main:focus, h2:focus { outline: none; }
+
+    .skip-link {
+      position: absolute;
+      top: -50px; left: 0; z-index: 500;
+      padding: 6px;
+      background: red; color: white;
+      transition: top 1s ease-out;
+    }
+    .skip-link:focus { top: 0; outline: 1px solid black; outline-offset: initial;}
+
+    ul[role="radiogroup"] { list-style: none; }
+    li[role="radio"] { position: relative; }
+    li[role="radio"]::before {
+      position: absolute;
+      left: -18px; top: 3px;
+      display: block;
+      width: 14px; height: 14px;
+      border: 2px solid black;
+      border-radius: 50%;
+      content: '';
+    }
+    li[role="radio"][checked]::after {
+      position: absolute;
+      left: -16px; top: 5px;
+      display: block;
+      width: 10px; height: 10px;
+      background: #0A5F0A;
+      border-radius: 50%;
+      content: '';
+    }
+
+    .feedback-underlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      display: none;
+      overflow-y: auto;
+    }
+    .feedback-underlay--active {
+      display: block;
+    }
+    @media screen and (min-width: 640px) {
+      .feedback-underlay {
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+    .feedback {
+      position: absolute;
+      top: 30vh;
+      left: 50vw;
+      transform: translateX(-50%);
+      width:400px;
+      background: #FFF;
+      border: 1px solid black;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, .5), -2px -2px 3px rgba(0, 0, 0, .5);
+    }
+    .feedback__close {
+      position: fixed;
+      top: 0;
+      right: 0;
+      margin-top: 8px;
+      margin-right: 10px;
+      font-size: 1.3em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .feedback__content {
+      margin: 24px;
+      text-align: center;
+    }
+    .feedback__button {
+      width: 30%;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <nav role="navigation" class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="#home" class="w3-button"><b>BR</b> Architects</a>
+      <div class="w3-right w3-hide-small">
+        <a href="#projects" class="w3-button">Projects</a>
+        <a href="#about" class="w3-button">About</a>
+        <a href="#contact" class="w3-button">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <header role="banner" id="home" class="w3-display-container w3-content w3-wide" tabindex="-1">
+    <img class="w3-image" src="https://www.w3schools.com/w3images/architect.jpg" alt="the 80 story glass planel building we designed in 2010" width="1500" height="800">
+    <div class="w3-display-middle w3-margin-top w3-center">
+      <h1 class="w3-xxlarge w3-text-white">
+        <span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span>
+        <span class="w3-hide-small w3-text-light-grey"> Architects</span>
+      </h1>
+    </div>
+  </header>
+
+
+  <main id="main" role="main" class="w3-content w3-padding" tabindex="-1">
+
+    <section aria-labelledby="projects">
+      <div class="w3-container w3-padding-32">
+        <h2 id="projects" class="w3-border-bottom w3-border-light-grey w3-padding-16" tabindex="-1">Projects</h2>
+      </div>
+      <div class="w3-row-padding">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+            <img src="https://www.w3schools.com/w3images/house5.jpg" alt="beach house with a deck" style="width:100%">
+          </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+            <img src="https://www.w3schools.com/w3images/house2.jpg" alt="2 story colonial home we designed in 2009" style="width:100%">
+          </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+            <img src="https://www.w3schools.com/w3images/house3.jpg" alt="100 year old home we fixed last year" style="width:100%">
+          </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
+            <img src="https://www.w3schools.com/w3images/house4.jpg" alt="contemporary style barn house" style="width:100%">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="about">
+      <div class="w3-container w3-padding-32">
+        <h2 id="about" class="w3-border-bottom w3-border-light-grey w3-padding-16" tabindex="-1">About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="w3-row-padding w3-grayscale">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://www.w3schools.com/w3images/team2.jpg" alt="" style="width:100%">
+          <h3>John Doe</h3>
+          <p class="w3-opacity">CEO & Founder</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block">Contact John</button></p>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://www.w3schools.com/w3images/team1.jpg" alt="" style="width:100%">
+          <h3>Jane Doe</h3>
+          <p class="w3-opacity">Architect</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block">Contact Jane</button></p>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://www.w3schools.com/w3images/team3.jpg" alt="" style="width:100%">
+          <h3>Mike Ross</h3>
+          <p class="w3-opacity">Architect</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block">Contact Mike</button></p>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://www.w3schools.com/w3images/team4.jpg" alt="" style="width:100%">
+          <h3>Dan Star</h3>
+          <p class="w3-opacity">Architect</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block">Contact Dan</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact">
+      <div class="w3-container w3-padding-32">
+        <h2 id="contact" class="w3-border-bottom w3-border-light-grey w3-padding-16" tabindex="-1">Contact</h2>
+        <p id="cf-lbl1">Lets get in touch and talk about your next project.</p>
+        <form action="/action_page.php" target="_blank" aria-labelledby="cf-lbl1">
+          <input class="w3-input w3-border" type="text" placeholder="Name" name="Name" aria-label="name">
+          <input class="w3-input w3-section w3-border" type="text" placeholder="Email" name="Email" aria-label="email">
+          <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" name="Subject" aria-label="subject">
+          <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" name="Comment" aria-label="comment">
+          <p id="cf-lbl2">What type of request is this?</p>
+          <ul id="group1" role="radiogroup" class="radiogroup" aria-labelledby="cf-lbl2">
+            <li role="radio" tabindex="0" aria-checked="false" class="radio">Residential</li>
+            <li role="radio" tabindex="-1" aria-checked="false" class="radio">Commercial</li>
+            <li role="radio" tabindex="-1" aria-checked="false" class="radio">Goverment Contract</li>
+          </ul>
+          <button id="cf-btn1" class="w3-button w3-black w3-section" type="button">Send Message</button>
+        </form>
+      </div>
+      <div class="w3-container">
+        <img src="https://www.w3schools.com/w3images/map.jpg" alt="map of our location at 123 Main Street Redbank NJ" class="w3-image" style="width:100%">
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer role="contentinfo" class="w3-center w3-black w3-padding-16">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">W3.CSS</a></p>
+  </footer>
+
+<div id="cf-mw1" class="feedback-underlay">
+  <div class="feedback" role="dialog" aria-modal="true" aria-labelledby="mw1-lbl1" aria-describedby="mw1-lbl2">
+    <div class="feedback__close" role="button" aria-label="close window" tabindex="0">X</div>
+    <div class="feedback__content">
+      <h2 id="mw1-lbl1">Thank you. We will be in touch soon!</h2>
+      <p id="mw1-lbl2">Did you find everything you needed on our site?</p>
+      <div>
+        <button class="feedback__button w3-button w3-black">Yes</button>
+        <button class="feedback__button w3-button w3-black">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+(function() {
+
+  var focusableStr = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+  var VK_TAB   = 9;
+  var VK_ENTER = 13;
+  var VK_SPACE = 32;
+  var VK_LEFT  = 37;
+  var VK_UP    = 38;
+  var VK_RIGHT = 39;
+  var VK_DOWN  = 40;
+
+
+  function RadioGroup(id) {
+    this.elem = document.querySelector(id);
+    this.focusedIndex = 0;
+    this.buttons = this.elem.querySelectorAll('[role="radio"]');
+    this.focusedButton = this.buttons[this.focusedIndex];
+    this.scan = function(target) {
+      for(var i = 0; i < this.buttons.length; i++) {
+        if(target == this.buttons[i]) {
+          this.focusedIndex = i;
+          this.changeFocus(this.focusedIndex);
+        }
+      }
+    }
+    this.elem.addEventListener('keydown', this.handleKeyDown.bind(this));
+    this.elem.addEventListener('click', this.handleClick.bind(this));
+  }
+  RadioGroup.prototype.handleKeyDown = function(e) {
+    switch(e.keyCode) {
+      case VK_UP:
+      case VK_LEFT: {
+        e.preventDefault();
+        if( this.focusedIndex == 0 ) {
+          this.focusedIndex = this.buttons.length -1;
+        }
+        else {
+          this.focusedIndex--;
+        }
+        this.changeFocus(this.focusedIndex);
+        break;
+      }
+      case VK_DOWN:
+      case VK_RIGHT: {
+        e.preventDefault();
+        if( this.focusedIndex == (this.buttons.length -1) ) {
+          this.focusedIndex = 0;
+        }
+        else {
+          this.focusedIndex++;
+        }
+        this.changeFocus(this.focusedIndex);
+        break;
+      }
+      case VK_SPACE:
+      case VK_ENTER: {
+        e.preventDefault();
+        this.scan(e.target);
+        break;
+      }
+    }
+  };
+  RadioGroup.prototype.handleClick = function(e) {
+    this.scan(e.target);
+  };
+  RadioGroup.prototype.changeFocus = function(index) {
+    this.focusedButton.tabIndex = -1;
+    this.focusedButton.removeAttribute("checked");
+    this.focusedButton.setAttribute("aria-checked", "false");
+    this.focusedButton = this.buttons[index];
+    this.focusedButton.tabIndex = 0;
+    this.focusedButton.setAttribute("checked", "checked");
+    this.focusedButton.setAttribute("aria-checked", "true");
+    this.focusedButton.focus();
+  };
+
+
+  function ModalWindow(sel, rf) {
+    this.elem = document.querySelector(sel);
+    this.closeButton = this.elem.querySelector('.feedback__close');
+    this.focusable = this.elem.querySelectorAll(focusableStr);
+    this.firstTabStop = this.focusable[0];
+    this.lastTabStop = this.focusable[this.focusable.length - 1];
+    this.returnFocus = rf;
+    this.open = function() {
+      this.elem.classList.add("feedback-underlay--active");
+      //this.firstTabStop.focus();
+      this.focusable[1].focus();
+    }
+    this.close = function() {
+      this.elem.classList.remove("feedback-underlay--active");
+      this.returnFocus.focus();
+    }
+    this.open();
+    this.closeButton.addEventListener('click', this.close.bind(this));
+    this.elem.addEventListener('keydown', this.handleKeyDown.bind(this));
+  }
+  ModalWindow.prototype.handleKeyDown = function(e) {
+    switch(e.keyCode) {
+      case VK_TAB: {
+        if(e.target == this.firstTabStop && e.shiftKey) {
+          e.preventDefault();
+          this.lastTabStop.focus();
+        }
+        else if(e.target == this.lastTabStop && !e.shiftKey) {
+          e.preventDefault();
+          this.firstTabStop.focus();
+        }
+        break;
+      }
+      case VK_SPACE:
+      case VK_ENTER: {
+        if(e.target == this.closeButton) {
+          e.preventDefault();
+          this.close();
+        }
+        break;
+      }
+    }
+  };
+
+
+  var group1 = new RadioGroup('#group1');
+  var btn = document.getElementById("cf-btn1");
+  btn.addEventListener("click", fn1);
+  btn.addEventListener("keydown", fn1);
+  function fn1(e) {
+    if(e.type == "keydown" && (e.keyCode == VK_ENTER || e.keyCode == VK_SPACE) ) {
+      e.preventDefault();
+      var popup = new ModalWindow('#cf-mw1', this);
+    }
+    else if(e.type == "click") {
+        var popup = new ModalWindow('#cf-mw1', this);
+    }
+  }
+
+}());
+</script>
+
+</body>
+</html>
